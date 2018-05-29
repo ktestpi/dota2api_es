@@ -9,14 +9,26 @@ var _firebaseAdmin = require('firebase-admin');
 
 var _firebaseAdmin2 = _interopRequireDefault(_firebaseAdmin);
 
-var _dota2ApiEsFirebaseAdminServiceAccount = require('./dota2-api-es-firebase-admin-service-account.json');
-
-var _dota2ApiEsFirebaseAdminServiceAccount2 = _interopRequireDefault(_dota2ApiEsFirebaseAdminServiceAccount);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var serviceAccount;
+try {
+  serviceAccount = require('./dota2-api-es-firebase-admin-service-account.json');
+} catch (err) {
+  serviceAccount = {
+    type: "service_account",
+    project_id: "dota2-api-es",
+    // "private_key_id": process.env.PRIVATE_KEY_ID,
+    "private_key": process.env.PRIVATE_KEY.replace(/\\n/g, '\n'),
+    "client_email": process.env.CLIENT_EMAIL,
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://accounts.google.com/o/oauth2/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs"
+  };
+}
+
 _firebaseAdmin2.default.initializeApp({
-  credential: _firebaseAdmin2.default.credential.cert(_dota2ApiEsFirebaseAdminServiceAccount2.default),
+  credential: _firebaseAdmin2.default.credential.cert(serviceAccount),
   databaseURL: "https://dota2-api-es.firebaseio.com"
 });
 
