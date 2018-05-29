@@ -4,11 +4,39 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _keys = require('babel-runtime/core-js/object/keys');
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+var _keys2 = _interopRequireDefault(_keys);
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+var _defineProperty2 = require('babel-runtime/helpers/defineProperty');
+
+var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+var _getIterator2 = require('babel-runtime/core-js/get-iterator');
+
+var _getIterator3 = _interopRequireDefault(_getIterator2);
+
+var _set = require('babel-runtime/core-js/set');
+
+var _set2 = _interopRequireDefault(_set);
+
+var _promise = require('babel-runtime/core-js/promise');
+
+var _promise2 = _interopRequireDefault(_promise);
+
+var _regenerator = require('babel-runtime/regenerator');
+
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
+
+var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // const test = {val : true}
 // const test_ = {val : false}
@@ -16,13 +44,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
 exports.default = {
   Query: {
     player: function () {
-      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(parent, args, _ref) {
+      var _ref2 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee(parent, args, _ref) {
         var fs = _ref.fs,
             rt = _ref.rt;
 
         var _ref3, err, data;
 
-        return regeneratorRuntime.wrap(function _callee$(_context) {
+        return _regenerator2.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -40,7 +68,7 @@ exports.default = {
                 if (!data.exists) {
                   _error('Jugador con id ' + args.id + ' no encontrado');
                 }
-                return _context.abrupt('return', _extends({ id: args.id }, data.data()));
+                return _context.abrupt('return', (0, _extends3.default)({ id: args.id }, data.data()));
 
               case 8:
               case 'end':
@@ -57,11 +85,11 @@ exports.default = {
       return player;
     }(),
     match: function () {
-      var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(parent, args, _ref4) {
+      var _ref5 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee2(parent, args, _ref4) {
         var fs = _ref4.fs,
             rt = _ref4.rt;
         var matchLeague, matchInfo, match, playersID, promises, players;
-        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        return _regenerator2.default.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
@@ -91,7 +119,7 @@ exports.default = {
                   _error('Partida con id ' + args.id + ' no encontrada en liga ' + matchLeague.data.val());
                 }
                 //match = objeto a devolver de la partida
-                match = _extends({ id: args.id + '' }, matchInfo.data.data());
+                match = (0, _extends3.default)({ id: args.id + '' }, matchInfo.data.data());
                 // console.log('matchInfo',match);
 
                 playersID = match.players.map(function (player) {
@@ -101,7 +129,7 @@ exports.default = {
                   return player ? _getPlayer(fs, player) : 0;
                 });
                 _context2.next = 15;
-                return awtc(Promise.all(promises));
+                return awtc(_promise2.default.all(promises));
 
               case 15:
                 players = _context2.sent;
@@ -110,7 +138,7 @@ exports.default = {
                   _error('Error en la base de datos');
                 }
                 match.players = match.players.map(function (player, i) {
-                  return _extends({}, player, { player: _extends({ id: player.id }, player.id !== 0 ? players.data[i].data() : _createPlayer()) });
+                  return (0, _extends3.default)({}, player, { player: (0, _extends3.default)({ id: player.id }, player.id !== 0 ? players.data[i].data() : _createPlayer()) });
                 });
                 // console.log(match.players);
                 // console.log('radiant_win',match.radiant_win);
@@ -133,13 +161,13 @@ exports.default = {
       return match;
     }(),
     team: function () {
-      var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(parent, args, _ref6) {
+      var _ref7 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee3(parent, args, _ref6) {
         var fs = _ref6.fs,
             rt = _ref6.rt;
 
         var _ref8, err, data;
 
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        return _regenerator2.default.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
@@ -157,7 +185,7 @@ exports.default = {
                 if (!data.exists) {
                   _error('El equipo con id ' + args.id + ' no se encuentra');
                 }
-                return _context3.abrupt('return', _extends({ id: args.id }, data.data()));
+                return _context3.abrupt('return', (0, _extends3.default)({ id: args.id }, data.data()));
 
               case 8:
               case 'end':
@@ -174,13 +202,13 @@ exports.default = {
       return team;
     }(),
     league: function () {
-      var _ref10 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(parent, args, _ref9) {
+      var _ref10 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee4(parent, args, _ref9) {
         var fs = _ref9.fs,
             rt = _ref9.rt;
 
         var leagueInfo, league, matchesCollection, players_league, promisesPlayers, playersID_league, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, player, players;
 
-        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+        return _regenerator2.default.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
@@ -196,7 +224,7 @@ exports.default = {
                 if (!leagueInfo.data.exists) {
                   _error('La liga con id ' + args.id + ' no se encuentra');
                 }
-                league = _extends({ id: args.id }, leagueInfo.data.data());
+                league = (0, _extends3.default)({ id: args.id }, leagueInfo.data.data());
                 _context4.next = 8;
                 return awtc(fs.collection('leagues').doc(args.id + '').collection('matches').get());
 
@@ -208,10 +236,10 @@ exports.default = {
                 }
                 // if(!matchesCollection.data.exists){_error(`Las partidas de la liga con id ${args.id} no se encuentran`)}
                 league.matches = [];
-                players_league = new Set();
+                players_league = new _set2.default();
 
                 matchesCollection.data.forEach(function (matchCol) {
-                  league.matches.push(_extends({ id: matchCol.id }, matchCol.data()));
+                  league.matches.push((0, _extends3.default)({ id: matchCol.id }, matchCol.data()));
                   matchCol.data().players.map(function (player) {
                     if (player.id) {
                       players_league.add(player.id);
@@ -229,7 +257,7 @@ exports.default = {
                 _iteratorError = undefined;
                 _context4.prev = 20;
 
-                for (_iterator = players_league.values()[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                for (_iterator = (0, _getIterator3.default)(players_league.values()); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
                   player = _step.value;
 
                   playersID_league.push(player);
@@ -270,7 +298,7 @@ exports.default = {
 
               case 36:
                 _context4.next = 38;
-                return awtc(Promise.all(promisesPlayers));
+                return awtc(_promise2.default.all(promisesPlayers));
 
               case 38:
                 players = _context4.sent;
@@ -279,12 +307,12 @@ exports.default = {
                   _error('Error en la base de datos');
                 }
                 players = players.data.map(function (player, i) {
-                  return _extends({ id: playersID_league[i] }, player.data());
+                  return (0, _extends3.default)({ id: playersID_league[i] }, player.data());
                 });
                 league.matches = league.matches.map(function (match) {
-                  return _extends({}, match, {
+                  return (0, _extends3.default)({}, match, {
                     players: match.players.map(function (player) {
-                      return _extends({}, player, { player: player.id ? players.find(function (p) {
+                      return (0, _extends3.default)({}, player, { player: player.id ? players.find(function (p) {
                           return p.id === player.id;
                         }) : _createPlayer() });
                     }) });
@@ -314,7 +342,7 @@ function _getPlayer(db, player) {
 }
 
 function _createPlayer() {
-  return _defineProperty({ id: 0, name: 'Desconocid@', url: '0', avatar: '0', rank: 0, rankdb: 0 }, 'avatar', 't');
+  return (0, _defineProperty3.default)({ id: 0, name: 'Desconocid@', url: '0', avatar: '0', rank: 0, rankdb: 0 }, 'avatar', 't');
 }
 
 function _cerror(err, message) {
@@ -326,16 +354,16 @@ function _error(message) {
 }
 
 Promise.props = function (props) {
-  return Promise.all(Object.keys(props).map(function (key) {
+  return _promise2.default.all((0, _keys2.default)(props).map(function (key) {
     // ok with val, func, prom?
-    return Promise.resolve(props[key]).then(function (res) {
+    return _promise2.default.resolve(props[key]).then(function (res) {
       var one = {};
       one[key] = res;
       return one;
     });
   })).then(function (arr) {
     return arr.reduce(function (memo, oneRes) {
-      var key = Object.keys(oneRes)[0];
+      var key = (0, _keys2.default)(oneRes)[0];
       memo[key] = oneRes[key];
       return memo;
     }, {});
@@ -346,7 +374,7 @@ var awtc = function awtc(promise) {
   return promise.then(function (data) {
     return { err: null, data: data };
   }).catch(function (err) {
-    return Promise.resolve({ err: err, data: null });
+    return _promise2.default.resolve({ err: err, data: null });
   });
 };
 
