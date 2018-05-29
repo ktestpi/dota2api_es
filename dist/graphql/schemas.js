@@ -1,0 +1,6 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = "\n  type Query{\n    player(id: Int!): Player!\n    match(id: String!): Match!\n    team(id: Int!): Team!\n    league(id: Int!): League!\n    playerr(id: Int!): Player!\n  }\n  type Player{\n    id: Int!\n    name: String!\n    url: String\n    avatar: String!\n    rank : Int\n    ranklb : Int\n  }\n  type Match{\n    id: String!\n    dire_kills: Int\n    dire_team: Team!\n    duration: Int!\n    end: Int!\n    players: [MatchPlayer!]!\n    radiant_kills : Int\n    radiant_team: Team!\n    radiant_win: Boolean!\n  }\n  type Team{\n    id: Int!\n    country_code: String\n    logo: String\n    name: String\n    tag: String\n  }\n  type MatchPlayer{\n    id: Int!\n    player : Player!\n    assists: Int\n    backPack1: Int\n    backPack2: Int\n    backPack3: Int\n    deaths: Int\n    denies: Int\n    gpm: Int!\n    hero: Int!\n    hero_damage: Int\n    hero_healing: Int\n    item0: Int\n    item1: Int\n    item2: Int\n    item3: Int\n    item4: Int\n    item5: Int\n    kills: Int\n    lane: Int\n    lasthits: Int\n    level: Int!\n    slot: Int\n    tower_damage: Int\n    xpm: Int!\n  }\n  type League{\n    id: Int!\n    name: String!\n    matches: [Match!]!\n  }\n";
